@@ -6,31 +6,8 @@
 // sum("123", "123")=> Error
 // sum({},{})=> Error
 
-// Why do we test?
-// To make sure things work
-// Define function behaviour
-// so we can make changes safely
-// Indirect, force us to write pure functions (only relies on input not global scope)
+import { arrEngToMorse, arrMorseToEng } from "./translation";
 
-import { morse, morseToEng, engToMorse } from "./script.js";
-
-// test("that the sum function adds two numbers together", () => {
-//     const total = sum(1, 10);
-
-//     expect(total).toBe(11);
-// });
-// test("that 1+11,15", () => {
-//     const total = sum(1, 11);
-
-//     expect(total).toBe(12);
-// });
-
-// describe("Test cases for sum functions", () => {
-//     it("should give a valid sum for 2 numers", () => {
-//         expect(sum(1, 2)).toBe(3);
-//         expect(sum(10, 20)).toBe(30);
-//         expect(sum(11, 3)).toBe(14);
-//     });
 //     it("should return 0 for 0 arguments", () => {
 //         expect(sum()).toBe(0);
 //     });
@@ -49,21 +26,30 @@ import { morse, morseToEng, engToMorse } from "./script.js";
 //     });
 // });
 
-// Error cases
-// user types number
-//
-describe("Test cases for morse translator functions", () => {
+describe("Test cases for Morse to English function", () => {
     it("should return translation of morse code into English letters", () => {
-        expect(morse(".-")).toBe("A");
-        expect(morse("-...")).toBe("B");
-        expect(morse("-.-. .")).toBe("CE");
-        expect(morse(".- -... -.-. -..")).toBe("ABCD");
+        expect(arrMorseToEng(".-")).toBe("A");
+        expect(arrMorseToEng("-... -.-. -..")).toBe("BCD");
+        expect(arrMorseToEng(".- - / .-- --- .-. -.-")).toBe("AT WORK");
     });
 });
-
-describe("Test cases for morse translator functions", () => {
-    it("should throw error if input is number in a string", () => {
-        expect(() => morse("123")).toThrowError(Error);
-        expect();
+describe("Test case English to Morse function", () => {
+    it("should return translation of English letters and words into Morse code", () => {
+        expect(arrEngToMorse("A")).toBe(".-");
+        expect(arrEngToMorse("AB")).toBe(".- -...");
+        expect(arrEngToMorse("MONKEY")).toBe("-- --- -. -.- . -.--");
+        expect(arrEngToMorse("HI MONKEY")).toBe(
+            ".... .. / -- --- -. -.- . -.--",
+        );
+    });
+    it("should return translation of English special charactors of ! || ? into Morse", () => {
+        expect(arrEngToMorse("YO!")).toBe("-.-- --- -.-.--");
+        expect(arrEngToMorse("HI?")).toBe(".... .. ..--..");
+    });
+});
+describe("Test case for error cases!", () => {
+    it("should throw error if the input is a combination of English and Morse code", () => {
+        expect(() => arrEngToMorse("A .----")).toThrowError(Error);
+        expect(() => arrMorseToEng("B .----")).toThrowError(Error);
     });
 });

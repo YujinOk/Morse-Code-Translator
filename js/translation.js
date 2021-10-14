@@ -23,6 +23,10 @@ const engToMorseTranslation = (input) => {
 };
 
 const arrMorseToEng = (morseToEng) => {
+    if (/[A-Z]+/g.test(morseToEng)) {
+        // as this function translates morse into Eng=> checking whether the letter of A-Z appears, that means => combination of letter and Morse "ERROR"
+        throw new Error("Please enter English or Morse code separately!");
+    }
     return morseToEng
         .split(" ")
         .map((morseLetter) => {
@@ -30,13 +34,16 @@ const arrMorseToEng = (morseToEng) => {
         })
         .join("");
 };
-console.log(arrMorseToEng("... / --- / ..."));
+// console.log(arrMorseToEng("... / --- / ..."));
 // const engToSingleMorse = "A";
 // const engToDoubleMorse = "AB";
 // const engToMultipleMorse = "A B C D";
 // const engWordToMorse = "monkey banana";
 
 const arrEngToMorse = (engWordToMorse) => {
+    if (/[.\-]/g.test(engWordToMorse)) {
+        throw new Error("Please enter English or Morse code separately!");
+    }
     return (
         engWordToMorse
             // replacing all spaces into [/] to represent the space in morse code
