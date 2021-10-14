@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "BoldlyMissy";
+    src: url("BoldlyMissy.otf") format("opentype");
+}
+* {
+    font-family: "BoldlyMissy", cursive;
+}
+
+body {
+    background-color: #0d0e0e;
+}
+
+h1 {
+    -webkit-text-stroke: 0.5px #e991bd;
+    text-align: center;
+    font-size: 4rem;
+}
+
+p {
+    color: pink;
+    font-size: 1.5rem;
+}
+
+input {
+    margin-top: 5%;
+    width: 60%;
+    min-height: 150px;
+    border-radius: 2%;
+    background-color: #fadfe3;
+    font-size: 1.5rem;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin-top: 2%;
+    border-radius: 90%;
+    font-size: 2rem;
+    padding: 0.5%;
+    border: 3px solid hotpink;
+}
+
+.btn__container {
+    flex-direction: row;
+    justify-content: space-around;
+}
