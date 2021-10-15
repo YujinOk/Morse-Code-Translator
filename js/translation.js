@@ -1,4 +1,4 @@
-import { morseToEng, engToMorse } from "./dictionary.js";
+import { morseToEngDict, engToMorseDict } from "./dictionary.js";
 
 // const morseSingle = ".../---/...";
 // const morseDouble = "... --- ... / ... --- ...";
@@ -6,28 +6,27 @@ import { morseToEng, engToMorse } from "./dictionary.js";
 // REMI => r e m i /
 
 const morseToEngTranslation = (input) => {
-    if (!morseToEng.hasOwnProperty(input)) {
+    if (!morseToEngDict.hasOwnProperty(input)) {
         console.log("Does not exist!");
     } else {
-        return morseToEng[input];
+        return morseToEngDict[input];
     }
 };
 
 const engToMorseTranslation = (input) => {
     const inputUpperCase = input.toUpperCase();
-    if (!engToMorse.hasOwnProperty(inputUpperCase)) {
-        console.log("Does not exist!");
+    if (!engToMorseDict.hasOwnProperty(inputUpperCase)) {
+        return;
     } else {
-        return engToMorse[inputUpperCase];
+        return engToMorseDict[inputUpperCase];
     }
 };
 
-const arrMorseToEng = (morseToEng) => {
-    if (/[A-Z]+/g.test(morseToEng)) {
-        // as this function translates morse into Eng=> checking whether the letter of A-Z appears, that means => combination of letter and Morse "ERROR"
-        throw new Error("Please enter English or Morse code separately!");
+const arrMorseToEng = (input) => {
+    if (/[A-Z]+/gi.test(input)) {
+        throw new Error("❌ Please enter English or Morse code separately!");
     }
-    return morseToEng
+    return input
         .split(" ")
         .map((morseLetter) => {
             return morseToEngTranslation(morseLetter);
@@ -40,12 +39,13 @@ const arrMorseToEng = (morseToEng) => {
 // const engToMultipleMorse = "A B C D";
 // const engWordToMorse = "monkey banana";
 
-const arrEngToMorse = (engWordToMorse) => {
-    if (/[.\-]/g.test(engWordToMorse)) {
-        throw new Error("Please enter English or Morse code separately!");
+const arrEngToMorse = (input) => {
+    if (/[.\-]/g.test(input)) {
+        throw new Error("❌ Please enter English or Morse code separately!");
     }
+
     return (
-        engWordToMorse
+        input
             // replacing all spaces into [/] to represent the space in morse code
             .replace(/[ ]/g, "/")
             // split the string into each character to make it easier to translate into morse code

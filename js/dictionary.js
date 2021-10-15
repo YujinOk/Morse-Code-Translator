@@ -1,4 +1,4 @@
-const morseToEng = {
+const morseToEngDict = {
     ".-": "A",
     "-...": "B",
     "-.-.": "C",
@@ -40,7 +40,7 @@ const morseToEng = {
     "/": " ",
 };
 
-const engToMorse = {
+const engToMorseDict = {
     A: ".-",
     B: "-...",
     C: "-.-.",
@@ -82,7 +82,5 @@ const engToMorse = {
     "/": "/",
     " ": " ",
 };
-
 // Eng [" "] => Morse[/]: I handled this part using REGEX because to make this work back to Morse[/] => Eng[" "],also to make every space in Eng letter to [/]
-
-export { morseToEng, engToMorse };
+export { morseToEngDict, engToMorseDict };

@@ -5,26 +5,13 @@
 // sum(3.124,5.123)=> someting
 // sum("123", "123")=> Error
 // sum({},{})=> Error
-
-import { arrEngToMorse, arrMorseToEng } from "./translation";
-
-//     it("should return 0 for 0 arguments", () => {
-//         expect(sum()).toBe(0);
-//     });
-//     it("should return a if b is undefine", () => {
-//         expect(sum(7)).toBe(7);
-//         expect(sum(10)).toBe(10);
-//         expect(sum(2.14124)).toBe(2.14124);
-//     });
-//     it("should return an error, if arguments are not numbers", () => {
-//         const error = new Error("Arguments must be numbers");
-
-//         // when catching an error, we need to pass a function to expect otherwise the exception will crash our test
 //         expect(() => sum("123", "123")).toThrowError(error);
 //         expect(() => sum({}, {})).toThrowError(error);
 //         expect(() => sum("123", 7)).toThrowError(error);
 //     });
 // });
+
+import { arrEngToMorse, arrMorseToEng } from "./translation";
 
 describe("Test cases for Morse to English function", () => {
     it("should return translation of morse code into English letters", () => {
