@@ -49,3 +49,9 @@ button {
   flex-direction: row;
   justify-content: space-around;
 }
+
+@media (max-width: 747px) and (min-width: 387px) {
+  div {
+    padding-left: 3%;
+  }
+}

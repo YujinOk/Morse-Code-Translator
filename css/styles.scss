@@ -46,3 +46,12 @@ button {
     flex-direction: row;
     justify-content: space-around;
 }
+
+$breakpoint-min: 387px;
+$breakpoint-max: 747px;
+
+@media (max-width: $breakpoint-max) and (min-width: $breakpoint-min) {
+    div {
+        padding-left: 3%;
+    }
+} ;
