@@ -1,16 +1,3 @@
-// sum function, parameter: 2 numbers
-// sum (1,1,)=> 2;
-// sum()=> 0;
-// sum(7)=>7;
-// sum(3.124,5.123)=> someting
-// sum("123", "123")=> Error
-// sum({},{})=> Error
-//         expect(() => sum("123", "123")).toThrowError(error);
-//         expect(() => sum({}, {})).toThrowError(error);
-//         expect(() => sum("123", 7)).toThrowError(error);
-//     });
-// });
-
 import { arrEngToMorse, arrMorseToEng } from "./translation";
 
 describe("Test cases for Morse to English function", () => {
