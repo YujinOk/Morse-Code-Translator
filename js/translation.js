@@ -7,7 +7,7 @@ import { morseToEngDict, engToMorseDict } from "./dictionary.js";
 
 const morseToEngTranslation = (input) => {
     if (!morseToEngDict.hasOwnProperty(input)) {
-        console.log("Does not exist!");
+        throw new Error("Not Found!");
     } else {
         return morseToEngDict[input];
     }
@@ -16,7 +16,7 @@ const morseToEngTranslation = (input) => {
 const engToMorseTranslation = (input) => {
     const inputUpperCase = input.toUpperCase();
     if (!engToMorseDict.hasOwnProperty(inputUpperCase)) {
-        return;
+        throw new Error("Not Found!");
     } else {
         return engToMorseDict[inputUpperCase];
     }
@@ -25,6 +25,9 @@ const engToMorseTranslation = (input) => {
 const arrMorseToEng = (input) => {
     if (/[A-Z]+/gi.test(input)) {
         throw new Error("❌ Please enter English or Morse code separately!");
+    }
+    if (input === "") {
+        throw new Error("Please enter English or Morse code!");
     }
     return input
         .split(" ")
@@ -43,6 +46,9 @@ const arrEngToMorse = (input) => {
     if (/[.\-]/g.test(input)) {
         throw new Error("❌ Please enter English or Morse code separately!");
     }
+    if (input === "") {
+        throw new Error("Please enter English or Morse code!");
+    }
 
     return (
         input
@@ -58,6 +64,12 @@ const arrEngToMorse = (input) => {
     );
 };
 
+export {
+    arrEngToMorse,
+    arrMorseToEng,
+    morseToEngTranslation,
+    engToMorseTranslation,
+};
 // const testEng = "hello monkey what are you doing?";
 // const testOutput = testEng.replace(/[ ]/g, "/").split("");
 // console.log(testOutput);
@@ -74,5 +86,3 @@ const arrEngToMorse = (input) => {
 // if English words have space => morsecode should be spitted by (/)
 // e.g. "monkey banana"=> a way of checking whetehr that is space
 // then it needs to translate into (/) first before splitting and translating
-
-export { arrEngToMorse, arrMorseToEng };

@@ -82,5 +82,5 @@ const engToMorseDict = {
     "/": "/",
     " ": " ",
 };
-// Eng [" "] => Morse[/]: I handled this part using REGEX because to make this work back to Morse[/] => Eng[" "],also to make every space in Eng letter to [/]
+// Eng [" "] => Morse[/]: I handled this part using REGEX to make this work back to Morse[/] => Eng[" "],also to make every space in Eng letter to [/]
 export { morseToEngDict, engToMorseDict };
