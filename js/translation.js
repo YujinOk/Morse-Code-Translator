@@ -7,7 +7,7 @@ import { morseToEngDict, engToMorseDict } from "./dictionary.js";
 
 const morseToEngTranslation = (input) => {
     if (!morseToEngDict.hasOwnProperty(input)) {
-        throw new Error("Not Found!");
+        throw new Error("❌ Not Found!");
     } else {
         return morseToEngDict[input];
     }
@@ -16,7 +16,7 @@ const morseToEngTranslation = (input) => {
 const engToMorseTranslation = (input) => {
     const inputUpperCase = input.toUpperCase();
     if (!engToMorseDict.hasOwnProperty(inputUpperCase)) {
-        throw new Error("Not Found!");
+        throw new Error("❌ Not Found!");
     } else {
         return engToMorseDict[inputUpperCase];
     }
@@ -27,7 +27,7 @@ const arrMorseToEng = (input) => {
         throw new Error("❌ Please enter English or Morse code separately!");
     }
     if (input === "") {
-        throw new Error("Please enter English or Morse code!");
+        throw new Error("❌ Please enter English or Morse code!");
     }
     return input
         .split(" ")
@@ -47,7 +47,7 @@ const arrEngToMorse = (input) => {
         throw new Error("❌ Please enter English or Morse code separately!");
     }
     if (input === "") {
-        throw new Error("Please enter English or Morse code!");
+        throw new Error("❌ Please enter English or Morse code!");
     }
 
     return (

@@ -35,12 +35,14 @@ describe("Test case for error cases!", () => {
     //     expect(() => arrEngToMorse("-100")).toThrowError(error);
 });
 it("should throw error if the input is empty string", () => {
-    const error = new Error("Please enter English or Morse code!");
+    const error = new Error("❌ Please enter English or Morse code!");
     // expect(() => arrEngToMorse("")).toThrowError(error);
     expect(() => arrMorseToEng("")).toThrowError(error);
 });
 it("should throw error if the input contains symbols that does not exist in the dictionary", () => {
-    const error = new Error("Not found!");
+    const error = new Error("❌ Not Found!");
+    expect(() => arrEngToMorse("@")).toThrowError(error);
+    expect(() => arrMorseToEng("$")).toThrowError(error);
 });
 
 // negative integer check if, else?
