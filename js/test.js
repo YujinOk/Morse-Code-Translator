@@ -29,10 +29,6 @@ describe("Test case for error cases!", () => {
         expect(() => arrMorseToEng("--. A")).toThrowError(Error);
         expect(() => arrMorseToEng("-. A -.")).toThrowError(Error);
     });
-    // it("should throw error if the input contains negative integer", () => {
-    //     expect(() => arrEngToMorse("-1")).toThrowError(error);
-    //     expect(() => arrEngToMorse("-20")).toThrowError(error);
-    //     expect(() => arrEngToMorse("-100")).toThrowError(error);
 });
 it("should throw error if the input is empty string", () => {
     const error = new Error("❌ Please enter English or Morse code!");

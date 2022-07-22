@@ -23,6 +23,7 @@ const engToMorseTranslation = (input) => {
 };
 
 const arrMorseToEng = (input) => {
+    // to prevent mixup of morsecode and English letter
     if (/[A-Z]+/gi.test(input)) {
         throw new Error("❌ Please enter English or Morse code separately!");
     }
@@ -36,11 +37,6 @@ const arrMorseToEng = (input) => {
         })
         .join("");
 };
-// console.log(arrMorseToEng("... / --- / ..."));
-// const engToSingleMorse = "A";
-// const engToDoubleMorse = "AB";
-// const engToMultipleMorse = "A B C D";
-// const engWordToMorse = "monkey banana";
 
 const arrEngToMorse = (input) => {
     if (/[.\-]/g.test(input)) {
